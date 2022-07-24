@@ -1,0 +1,56 @@
+.modal-background{
+    top:0%;         /* we can also use width and height as 100 vh or vw */
+    left:0%;        /* but some time it will show bug  */
+    right: 0%;
+    bottom: 0%;    
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: modalBackground 600ms 1 ease;
+    animation-fill-mode: forwards;
+}
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border: 1px solid #8080805c;
+    box-shadow: 0px 1px 28px #fde7e7c9;
+    background-color: white;
+    position: relative;
+    animation: modal 600ms 1 ease;
+    animation-fill-mode: forwards;
+}
+
+.modal-close-btn{
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+}
+
+@keyframes modalBackground {
+    
+    50%{
+      background-color: #353434;
+    }
+    100%{
+        background: #302f2f;
+    }
+}
+
+@keyframes modal {
+
+    0%{ 
+        opacity: 0.3;
+        transform: translateY(-46px);
+    }
+    50%{
+        opacity: 0.6;
+        transform: translateY(-18px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

@@ -1,0 +1,31 @@
+
+/* Spinner-1 css */
+
+*{
+    box-sizing: border-box;
+}
+
+.spinner{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.spinner-sector{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+
+   /* background-color: red; */
+   border-radius: 50%;
+
+   border: 15px solid transparent;   /* since we want to show 3 different section in spinner so doing transparent and now will give different direction to border */
+}
+
+
+/* Spinner-2 css */

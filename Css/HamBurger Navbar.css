@@ -1,0 +1,95 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.navbars{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: black;
+    color: white;
+}
+
+.brand-titles{
+    font-size: 1.5rem;
+    margin: 0.5rem;
+}
+
+.navbar-links{
+    width: 60%;
+}
+
+.navbar-links ul{
+    list-style-type: none;
+    margin: 0px;       /* every ul or ol tag take default margin and padding */
+    padding: 0px;      /* so remove it */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.navbar-links li{
+    list-style:none;
+}
+
+.navbar-links a{
+    text-decoration: none;
+    color: rgb(194, 194, 194);
+    padding: 1rem;
+    display: block;
+}
+
+.navbar-links li :hover{
+    background-color: #444444;
+}
+
+/* Hamburger button css */
+.toggle-button{
+    position: absolute;
+    top:.7rem;
+    right:1rem;
+    display: none;        
+    flex-direction: column;
+    width: 30px;
+    height: 21px;
+    justify-content: space-between;
+}
+
+.toggle-button .bar{
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media screen and (max-width:564px) {
+    
+    /* Now hamburger menu is visible */
+    .toggle-button{
+        display: flex;
+    }
+    
+    /* here now links of navbar are hidden */
+    .navbar-links{
+        display: none;
+        width: 100%;  
+    }
+
+    .navbars{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .navbar-links ul{
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    /* This call is responsible for showing or hiding on click on hamburger */
+    .active{
+        display: block;
+        height: 200px;
+    }
+
+}

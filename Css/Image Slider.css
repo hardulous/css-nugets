@@ -1,0 +1,71 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.slide{
+    position: absolute;
+    inset: 0;          /* here inset property is shorthand top,right,bottom,left property */
+    list-style: none;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    transition-delay: 200ms;  
+
+    /* here as both active and in-active slide fading at the same time due to which white effect is shown so to remov it add transition delay so that new active image take delay for the transition where as the previous active image does not take any delay and immedetly get opacity of 0 */
+}
+
+/* Here now that .slide element which have data-active label will be visible and rest have opacity of 0 */
+.slide[data-active]{
+
+    opacity: 1;
+    transition-delay: 0ms;
+
+}
+
+.slide > img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+ 
+.carousel-button{
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 4rem;
+    top: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+    color: antiquewhite;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.178);
+    border-radius: 0.25rem;
+    padding: 0 .5rem;
+}
+
+.carousel-button:hover,
+.carousel-button:focus{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.37);
+}
+
+.carousel-button:focus{
+    outline: 1px solid black;
+}
+
+.carousel-button.prev{
+    left: 1rem;
+}
+
+.carousel-button.next{
+    right: 1rem;
+}
