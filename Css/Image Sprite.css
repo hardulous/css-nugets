@@ -1,0 +1,39 @@
+
+ul{
+    list-style:none;
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    width: 63px;
+    height: 64px;
+    background: url(../images/image-sprite.jpg);
+    display: inline-block;
+    border-radius: 50%;
+    transition: background .4s ease;
+}
+
+#facebook{
+    background-position: -311px -90px;
+}
+
+#facebook:hover{
+    background-position: -310px -3px
+}
+
+#insta{
+    background-position: -1px -88px;
+}
+
+#insta:hover{
+    background-position: -1px 0px;
+}
+
+#twitter{
+    background-position: 67px -89px;
+}
+
+#twitter:hover{
+   background-position: 67px 0px;
+}
