@@ -1,0 +1,67 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+nav .mainMenu{
+    display: flex;
+}
+
+nav a{
+    text-align: left;
+    padding: 12px 15px 12px 15px;
+    background-color: #5f6975;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: block;
+}
+
+nav li:hover>a{
+    background-color: #2f95c8;
+    cursor: pointer;
+}
+
+.subMenu{     
+    position: absolute;
+    display: none;     /* by-default drop down are hidden */
+}
+
+nav .mainMenu li:hover .subMenu{ /* on hover will will show the drop down */
+    display: block;
+}
+
+nav .subMenu li{
+    position: relative;
+    border: 1px solid red;
+}
+
+nav .superSubMenu li{
+    position: relative;
+}
+
+.superSubMenu{
+    position: absolute;
+    display: none;
+    top: 0px;
+    right:0px;
+    transform: translateX(100%);
+}
+
+.superUltraSubMenu{
+    position: absolute;
+    display: none;
+    top: 0px;
+    right:0px;
+    transform: translateX(100%);
+}
+
+nav .subMenu li:hover .superSubMenu{
+    display: block;
+}
+
+nav .superSubMenu li:hover .superUltraSubMenu{
+    display: block;
+}
