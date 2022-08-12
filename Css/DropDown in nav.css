@@ -1,67 +1,185 @@
 *{
-    padding: 0;
-    margin: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
+}
+
+.icon-menu,.icon-close{
+   width: 100%;
+   height: 25px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.icon-close{
+    justify-content: center;
+}
+
+.icon-menu span{
+    width: 100%;
+    height: 4px;
+    background-color: black;
+}
+
+.icon-close span{
+    width: 100%;
+    height: 4px;
+    background-color: black;
+}
+
+.icon-close span:nth-child(1){
+    transform: rotate(-52deg);
+}
+.icon-close span:nth-child(2){
+    transform: rotate(52deg);
+}
+
+/* actual css for dropdown navbar */
+
+a{
+    text-decoration: none;
+}
+
+ul{
     list-style: none;
 }
 
-nav .mainMenu{
+header{
+    width: 100%;
+    position: relative;
+}
+
+.container{
+    width: 100%;
+}
+
+.menu-icons{
+    width: 8%;
     display: flex;
-}
-
-nav a{
-    text-align: left;
-    padding: 12px 15px 12px 15px;
-    background-color: #5f6975;
-    color: white;
-    text-decoration: none;
-    position: relative;
-    display: block;
-}
-
-nav li:hover>a{
-    background-color: #2f95c8;
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translate(-50%);
     cursor: pointer;
-}
-
-.subMenu{     
-    position: absolute;
-    display: none;     /* by-default drop down are hidden */
-}
-
-nav .mainMenu li:hover .subMenu{ /* on hover will will show the drop down */
-    display: block;
-}
-
-nav .subMenu li{
-    position: relative;
-    border: 1px solid red;
-}
-
-nav .superSubMenu li{
-    position: relative;
-}
-
-.superSubMenu{
-    position: absolute;
+    z-index: 1500;
     display: none;
-    top: 0px;
-    right:0px;
-    transform: translateX(100%);
 }
 
-.superUltraSubMenu{
+nav{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 8rem;
+    border-bottom: 1px solid red;
+}
+
+.logo{
+    font-size: 1.8rem;
+    color: gold;
+}
+
+.nav-list{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-list li{  
+    position: relative; /* by this the hover drop down will be positioned acc to parent li */
+}
+
+.nav-list a{
+    display: block;
+    color: burlywood;
+    padding: 0 1.2rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    transition: color 0.4s ease;
+}
+
+.nav-list a:hover{
+    color: gold;
+}
+
+.sub-menu::before{
+    content: "";
     position: absolute;
-    display: none;
-    top: 0px;
-    right:0px;
-    transform: translateX(100%);
+    top: -1.4rem;
+    left: 2rem;
+    border: 0.6rem solid transparent;
+    border-bottom-color: #eb3007;
 }
 
-nav .subMenu li:hover .superSubMenu{
-    display: block;
+.sub-menu .sub-menu::before{
+    top: 0rem;
+    left: -1.4rem;
+    border: 0.6rem solid transparent;
+    border-right-color: #eb3007;
 }
 
-nav .superSubMenu li:hover .superUltraSubMenu{
+.sub-menu{
+    width: 9rem;
+    position: absolute;
     display: block;
+    border-top: 3px solid #eb3007;
+    background-color: #191919;
+    z-index: 100;
+    top: 10rem;
+    opacity: 0;
+    visibility: hidden; /* must not use display none because as a result element will be removed from DOM but by visibility element will remain in DOM for animation */
+    transition: all 650ms ease;
+}
+
+.sub-menu .sub-menu{
+    top: 0%;
+    left :160%;
+    border:none;
+    border-left: 3px solid #eb3007;
+}
+
+/* now when hover on the li which have sub menu then they appear animated  */
+.nav-list li:hover > .sub-menu{
+    top: 4rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.sub-menu li:hover > .sub-menu{
+    left: 100%;
+    top: 0%;
+}
+
+@media screen and (max-width:890px) {
+
+    .nav-list{
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        height: 100vh;
+        flex-direction: column;
+        overflow-y: scroll; /* here by this when hovering on drop down , rest of the item will be moved downward so rest of item get hide below and fix this */
+    }
+
+    .nav-list li{
+        margin-bottom: 2rem;
+    }
+
+    .sub-menu{
+        position: initial; /* here for mobile viewport removing all position property */
+        border: 3px solid transparent;
+        margin-left: 0.8rem; /* for indentation of border */
+        max-height: 0px;  /* by this the visibility none sub-menu will not take height */
+    }
+
+    .sub-menu::before{
+        display: none;
+    }
+
+    .nav-list li:hover > .sub-menu{
+        opacity: 1;
+        visibility: visible;
+        max-height: initial;
+    }
+     
 }
