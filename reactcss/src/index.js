@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import GalleryPage from './GalleryPage';
 // import ReactSidebar from './ReactSidebar';
 // import ReactModal from './ReactModal.js'
 // import ReactImageSlider from './ReactImageSlider.js'
-import ReactSlick from './ReactSlick.js';
+// import ReactSlick from './ReactSlick.js';
+// import ReactGallery from './ReactGallery';
+// import ReactPhotoAlbum from './ReactPhotoAlbum';
+
 
 // import css 
 
@@ -22,7 +26,16 @@ root.render(
      {/* <ReactImageSlider/> */}
      
      {/* 4.React Translate Coursal */}
-     <ReactSlick/>
+     {/* <ReactSlick/> */}
+
+     {/* 5.React Gallery Component */}
+     {/* <ReactGallery/> */}
+
+     {/* 6. React Photo Album */}
+     {/* <ReactPhotoAlbum/> */}
+
+     {/* Combination of photo album and gallery */}
+     <GalleryPage/>
 
   </React.StrictMode>
 
