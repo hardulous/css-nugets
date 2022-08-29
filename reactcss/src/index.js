@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import GalleryPage from './GalleryPage';
+import RazorPay from './RazorPay';
 // import ReactSidebar from './ReactSidebar';
 // import ReactModal from './ReactModal.js'
 // import ReactImageSlider from './ReactImageSlider.js'
@@ -35,7 +36,11 @@ root.render(
      {/* <ReactPhotoAlbum/> */}
 
      {/* Combination of photo album and gallery */}
-     <GalleryPage/>
+     {/* <GalleryPage/> */}
+
+     {/* RazorPay Integration */}
+     <RazorPay/>
+
 
   </React.StrictMode>
 
